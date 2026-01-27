@@ -20,5 +20,5 @@ De acuerdo con lo revisado en las lecturas, complete las clases CountThread, par
 ![alt text](img/image-3.png)
 
 ### Cambie el incio con 'start()' por 'run()'. Cómo cambia la salida?, por qué?.
-La salida se ejecuta hilo por hilo hasta llegar al valor final de el utlimo en este caso 299 porque lo que hace start es ejectutar los hilos sin un orden especifico por lo cual estos se ejecutaran sin este orden mientras que con el run se ejecuta por el orden asignado en este main
+La salida se ejecuta hilo por hilo hasta llegar al valor final de el utlimo en este caso 299 porque lo que hace start (concurrente) es ejectutar los hilos sin un orden especifico por lo cual estos se ejecutaran sin este orden mientras que con el run se ejecuta por el orden asignado en este main
 ![alt text](img/image-4.png)
