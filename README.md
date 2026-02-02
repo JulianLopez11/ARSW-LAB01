@@ -1,8 +1,6 @@
 # ARSW-LAB01
 
-## Julian Camilo Lopez Barrero 
-
-## 🖊️ Objetivo
+## 🖊️ Objective
  
 The objective of this lab is to introduce threaded programming in Java, as well as its application to a specific case.
 
