@@ -27,27 +27,49 @@ public class HostBlackListsValidator {
      * BLACK_LIST_ALARM_COUNT, the search is finished, the host reported as
      * NOT Trustworthy, and the list of the five blacklists returned.
      * @param ipaddress suspicious host's IP address.
+     * @param N number of threads to be used.
      * @return  Blacklists numbers where the given host's IP address was found.
      */
-    public List<Integer> checkHost(String ipaddress){
+    public List<Integer> checkHost(String ipaddress, int N){
         
         LinkedList<Integer> blackListOcurrences=new LinkedList<>();
+        LinkedList<BlackListSearchThread> threads = new LinkedList<>();
         
         int ocurrencesCount=0;
         
         HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
-        
-        int checkedListsCount=0;
-        
-        for (int i=0;i<skds.getRegisteredServersCount() && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
-            checkedListsCount++;
-            
-            if (skds.isInBlackListServer(i, ipaddress)){
-                
-                blackListOcurrences.add(i);
-                
-                ocurrencesCount++;
+        int totalServers = skds.getRegisteredServersCount();
+        int listsPerThread = totalServers / N;
+        int remainingLists = totalServers % N;
+        int start = 0;
+
+        //Inicializar Hilos?
+        for(int i = 0; i < N; i++) {
+
+            int end = start + listsPerThread ;
+            if(i == N - 1) {
+                end += remainingLists; 
             }
+
+            BlackListSearchThread thread = new BlackListSearchThread(skds, ipaddress, start, end);
+            threads.add(thread);
+            thread.start();
+            start = end;
+        }
+
+        int checkedListsCount=0;
+
+        //Uso del join
+        for(BlackListSearchThread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                LOG.log(Level.SEVERE, "Thread interrupted: {0}", e.getMessage());
+            }
+            ocurrencesCount += thread.getOccurrencesCount();
+            blackListOcurrences.addAll(thread.getOccurrences());
+            checkedListsCount += (thread.getEnd()-thread.getStart());
         }
         
         if (ocurrencesCount>=BLACK_LIST_ALARM_COUNT){
