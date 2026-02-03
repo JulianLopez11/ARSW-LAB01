@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+func count(a int, b int, wg *sync.WaitGroup) {
+	defer wg.Done()
+
+	for i := a; i <= b; i++ {
+		fmt.Println(i)
+		time.Sleep(400 * time.Millisecond)
+	}
+}
+
+
+func main() {
+	var wg sync.WaitGroup
+
+	wg.Add(2)
+
+	go count(1, 5, &wg)
+	go count(6, 10, &wg)
+
+	wg.Wait() 
+}

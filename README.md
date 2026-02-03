@@ -1,170 +1,171 @@
 # ARSW-LAB01
 
-## 🖊️ Objetivo
+## 🖊️ Objective
 
 ---
  
-El objetivo de este laboratorio es introducir la programación con hilos en Java, así como su aplicación a un caso específico.
+The objective of this lab is to introduce threaded programming in Java, as well as its application to a specific case.
 
-### Requisitos previos
+### Prerequisites
 
 ---
 
-Asegúrate de tener lo siguiente instalado:
+Make sure you have the following installed:
 
 - [Java JDK 8+](https://www.oracle.com/java/technologies/javase-downloads.html)
 - [Apache Maven](https://maven.apache.org/)
 
-### Instalación
+### Installing
 
 ---
 
-1. Clona este repositorio en tu máquina local:
+1. Clone this repository on your local machine:
    ```bash
     git clone <URL_DEL_REPOSITORIO>
     ```
-2. Navega al directorio del proyecto
+2. Navigate to the project directory
     ```bash
     cd <NOMBRE_DEL_PROYECTO>
     ```
 
-3. Ejecuta el proyecto.
+3. Run the project.
 
-## Construido con
+## Built With
 
-* [Maven](https://maven.apache.org/) - Gestión de dependencias
-* [Java](https://www.oracle.com/java/) - Lenguaje de programación
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [Java](https://www.oracle.com/java/) - Programming Language
 
-## 🧵 Parte 1 : Introducción a Hilos en Java
+## 🧵 Part 1 : Introduction to Threads in Java
 
 ---
 
-### Parte 1.2 Basándote en lo que has leído, completa las clases CountThread para que definan el ciclo de vida de un hilo que imprime los números entre A y B en la pantalla.
+### Part 1.2 Based on what you've read, complete the CountThread classes so that they define the lifecycle of a thread that prints the numbers between A and B to the screen.
 
 ---
 
 ![alt text](img/image.png)
 
-### Parte 1.1: Completa el método main de la clase CountMainThreads para que:
+### Part 1.1: Complete the main method of the CountMainThreads class so that:
 
 ---
 
-### Crea 3 hilos CountThread, asignando al primero el rango [0..99], al segundo [99..199], y al tercero [200..299].
+### Create 3 CountThread threads, assigning the first the range [0..99], the second [99..199], and the third [200..299].
 
 ![alt text](img/image-1.png)
 
-### Inicia los tres hilos con 'start()'.
+### Start all three threads with 'start()'.
 ![alt text](img/image-2.png)
 
-### Ejecuta el programa y revisa la salida en la pantalla.
+### Run the program and review the output on the screen.
 
 ![alt text](img/image-3.png)
 
-### Cambia start() por 'run()'. ¿Cómo cambia la salida? ¿Por qué?
-La salida se ejecuta hilo por hilo hasta alcanzar el valor final del último, en este caso 299, porque lo que start (concurrente) hace es ejecutar los hilos sin un orden específico, por lo que se ejecutarán sin este orden, mientras que con run se ejecuta en el orden asignado o comúnmente llamado ejecución secuencial en este main
+### Change the start with 'start()' to 'run()'. How does the output change? Why?
+The output is executed thread by thread until it reaches the final value of the last one, in this case 299, because what start (concurrent) does is execute the threads without a specific order, so they will execute without this order, while with run it executes in the assigned order or commonly called sequential execution in this main
 
 ![alt text](img/image-4.png)
 
-## 🧵 Parte 2 : Ejercicio Búsqueda en Lista Negra
+## 🧵 Part 2 : Exercise Black List Search
 
 ---
 
-### Parte 2.1. Crea una clase Thread que represente el ciclo de vida de un hilo buscando en un segmento del grupo de servidores disponibles. Añade un método a esta clase que te permita consultar a las instancias de los hilos cuántas instancias de servidores maliciosos han encontrado o han encontrado.
+### Part 2.1. Create a Thread class that represents the lifecycle of a thread searching for a segment of the available server pool. Add a method to this class that allows you to query the instances of the threads for how many instances of malicious servers they have found or have found.
 
 ![alt text](img/image-5.png)
 ---
 
-### Parte 2.2
+### Part 2.2
 
 ![alt text](img/image-6.png)
 
 ---
 
 
-## 🧵 Parte 3 : Evaluación del Desempeño
+## 🧵 Part 3 : Performance Evaluation
 
-En base a lo anterior, implementa la siguiente secuencia de experimentos para validar direcciones IP dispersas (por ejemplo, 202.24.34.55), registrando los tiempos de ejecución (asegúrate de hacerlos en la misma máquina):
+Based on the above, implement the following sequence of experiments to validate sparse IP addresses (e.g., 202.24.34.55), recording the execution times (make sure to do them on the same machine):
 
-### Prueba 1 Hilo
+### Test 1 Thread
 
-El CPU funcionó alrededor del 0.0% - 0.7%
+The CPU worked around 0.0% - 0.7%
 
 ![alt text](img/image-7.png)
 ---
 ![alt text](img/image-8.png)
 
-### Prueba # De Núcleos 
+### Test # Of Cores
 
-En este caso mi portátil tiene 8, por lo que la prueba será con este valor 
-El CPU funcionó alrededor del
+In this case my laptop have 8 so the test gonna be with this value
+The CPU worked around
  
-El CPU funcionó alrededor del 0.0% - 2.8%
+The CPU worked around 0.0% - 2.8%
 
 ![alt text](img/image-9.png)
 ---
 ![alt text](img/image-10.png)
 ---
 
-### Prueba # De Núcleos x 2 
+### Test # Of Cores x 2
 
-El CPU funcionó alrededor del 0.0% - 4.0%
+The CPU worked around 0.0% - 4.0%
 
 ![alt text](img/image-11.png)
 ---
 ![alt text](img/image-12.png)
 
-### Prueba 50 Hilos
+### Test 50 Threads
 
-El CPU funcionó alrededor del 0.0% 
+The CPU worked around 0.0%
 
 ![alt text](img/image-13.png)
 ---
 ![alt text](img/image-14.png)
 
-### Prueba 100 Hilos
+### Test 100 Threads
 
-El CPU funcionó alrededor del 0.0% 
+The CPU worked around 0.0%
 
 ![alt text](img/image-15.png)
 ---
 ![alt text](img/image-16.png)
 
-## Gráfica de tiempo de solución (ms) vs. número de hilos
+## Graph of solution time(ms) vs. number of threads
 
-### Datos
+### Data
 
 ![alt text](img/image-17.png)
 
-### Gráfica
+### Graphic
 
 ![alt text](img/image-18.png)
 
 ---
 
-## 🧵 Parte 4 : Ejercicio Búsqueda en Lista Negra
+## 🧵 Part 4 : Exercise Black List Search
 
-De acuerdo con la Ley de Amdahl:
+According to Amdahl's Law:
 
 ![alt text](img/ahmdahls.png)
 
-donde S(n) es la mejora teórica del rendimiento, P es la fracción paralelizable del algoritmo, y n es el número de hilos. Cuanto mayor sea n, mayor será la mejora.
+where S(n) is the theoretical performance improvement, P is the parallelizable fraction of the algorithm, and n is the number of threads. The larger n is, the greater the improvement should be.
 
-### ¿Por qué no se logra el mejor rendimiento con 500 hilos? ¿Cómo se compara este rendimiento al usar 200 hilos?
+### Why isn't the best performance achieved with 500 threads? How does this performance compare when using 200 threads?
 
-Como lo dice la ley de Amhal y basándonos en la grafica realizada anteriormente a mayor hilos el rendimiento tiene casi siendo el mismo formando un tipo de "asintota" donde este sigue casi constante donde alli se tiene un costo alto por la creación y cambio de contexto entre los hilos. En cambio con 200 hilos se logra mas un equilibrio entre paralelismo y sobrecarga entonces el tiempo de ejecucion será menor que con 500.
+As Amdahl's law states and based on the graph made earlier, the more threads the performance is almost the same forming a type of "asymptote" where it remains almost constant where there is a high cost due to the creation and context switching between threads. On the other hand, with 200 threads a better balance is achieved between parallelism and overhead, so the execution time will be less than with 500.
 
-### ¿Cómo se comporta la solución utilizando tantos hilos de procesamiento como núcleos en comparación con el resultado de usar el doble?
+### How does the solution behave using as many processing threads as cores compared to the result of using twice as many?
 
-Cuando se usan tantos hilos de procesamiento como núcleos del procesador cada hilo va a poder ejecutarse en paralelo asi aprovechando mejor la CPU y minimizando el tiempo invertido en la gestion de los hilos ejecutados mientras que al usar el doble los hilos lo que harán sera competir por los nucleos lo que hará que el tiempo invertido aumente y el desempeño no mejore
+When using as many processing threads as processor cores, each thread will be able to execute in parallel thus making better use of the CPU and minimizing the time spent on managing the executed threads, while when using twice as many, the threads will compete for the cores which will cause the time spent to increase and the performance does not improve.
 
-### Basándote en lo anterior, si para este problema, en lugar de 100 hilos en una sola CPU, se pudiera usar un hilo en cada una de 100 máquinas hipotéticas, ¿se aplicaría mejor la Ley de Amdahl? 
+### Based on the above, if for this problem, instead of 100 threads on a single CPU, one thread could be used on each of 100 hypothetical machines, would Amdahl's Law apply better?
 
-Si, considero que se podria usar mejor 1 hilo en 100 maquinas hipoteticas porque el paralelismo seria mas distribuido y se veria mejor aplicado ya que pues cada hilo se ejecuta en su propia memoria y CPU y no habrán "peleas" entre estos por recursos 
+Yes, I consider that 1 thread could be better used in 100 hypothetical machines because the parallelism would be more distributed and would be seen better applied since each thread executes in its own memory and CPU and there will be no "competition" between them for resources.
 
-### Si, en cambio, se usaran c hilos en 100/c máquinas distribuidas (donde c es el número de núcleos en estas máquinas), ¿mejoraría el rendimiento? Explica tu respuesta.
+### If, instead, c threads were used on 100/c distributed machines (where c is the number of cores on these machines), would the performance improve? Explain your answer.
 
-Sí, este escenario mejoraría un poco más el desempeño, ya que la fracción paralelizable del programa se mantiene constante; únicamente se redistribuye el trabajo entre un mayor o menor número de procesadores con c hilos cada uno.
-## Autor
+Yes, this scenario would improve performance a bit more, since the parallelizable fraction of the program remains constant; only the work is redistributed between a greater or lesser number of processors with c threads each.
+
+## Authors
 
 * **Julian Camilo Lopez Barrero** - [JulianLopez11](https://github.com/JulianLopez11)
 
