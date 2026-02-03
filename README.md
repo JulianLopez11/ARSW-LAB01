@@ -43,7 +43,7 @@ Make sure you have the following installed:
 
 ---
 
-![alt text](img/image.png)
+![alt text](docs/img/image.png)
 
 ### Part 1.1: Complete the main method of the CountMainThreads class so that:
 
@@ -51,19 +51,19 @@ Make sure you have the following installed:
 
 ### Create 3 CountThread threads, assigning the first the range [0..99], the second [99..199], and the third [200..299].
 
-![alt text](img/image-1.png)
+![alt text](docs/img/image-1.png)
 
 ### Start all three threads with 'start()'.
-![alt text](img/image-2.png)
+![alt text](docs/img/image-2.png)
 
 ### Run the program and review the output on the screen.
 
-![alt text](img/image-3.png)
+![alt text](docs/img/image-3.png)
 
 ### Change the start with 'start()' to 'run()'. How does the output change? Why?
 The output is executed thread by thread until it reaches the final value of the last one, in this case 299, because what start (concurrent) does is execute the threads without a specific order, so they will execute without this order, while with run it executes in the assigned order or commonly called sequential execution in this main
 
-![alt text](img/image-4.png)
+![alt text](docs/img/image-4.png)
 
 ## 🧵 Part 2 : Exercise Black List Search
 
@@ -71,12 +71,12 @@ The output is executed thread by thread until it reaches the final value of the 
 
 ### Part 2.1. Create a Thread class that represents the lifecycle of a thread searching for a segment of the available server pool. Add a method to this class that allows you to query the instances of the threads for how many instances of malicious servers they have found or have found.
 
-![alt text](img/image-5.png)
+![alt text](docs/img/image-5.png)
 ---
 
 ### Part 2.2
 
-![alt text](img/image-6.png)
+![alt text](docs/img/image-6.png)
 
 ---
 
@@ -85,13 +85,15 @@ The output is executed thread by thread until it reaches the final value of the 
 
 Based on the above, implement the following sequence of experiments to validate sparse IP addresses (e.g., 202.24.34.55), recording the execution times (make sure to do them on the same machine):
 
+## Personal Computer
+
 ### Test 1 Thread
 
 The CPU worked around 0.0% - 0.7%
 
-![alt text](img/image-7.png)
+![alt text](docs/img/image-7.png)
 ---
-![alt text](img/image-8.png)
+![alt text](docs/img/image-8.png)
 
 ### Test # Of Cores
 
@@ -100,52 +102,89 @@ The CPU worked around
  
 The CPU worked around 0.0% - 2.8%
 
-![alt text](img/image-9.png)
+![alt text](docs/img/image-9.png)
 ---
-![alt text](img/image-10.png)
+![alt text](docs/img/image-10.png)
 ---
 
 ### Test # Of Cores x 2
 
 The CPU worked around 0.0% - 4.0%
 
-![alt text](img/image-11.png)
+![alt text](docs/img/image-11.png)
 ---
-![alt text](img/image-12.png)
+![alt text](docs/img/image-12.png)
 
 ### Test 50 Threads
 
 The CPU worked around 0.0%
 
-![alt text](img/image-13.png)
+![alt text](docs/img/image-13.png)
 ---
-![alt text](img/image-14.png)
+![alt text](docs/img/image-14.png)
 
 ### Test 100 Threads
 
 The CPU worked around 0.0%
 
-![alt text](img/image-15.png)
+![alt text](docs/img/image-15.png)
 ---
-![alt text](img/image-16.png)
+![alt text](docs/img/image-16.png)
 
-## Graph of solution time(ms) vs. number of threads
+## Graph of solution time(ms) vs. number of threads Personal Computer
 
 ### Data
 
-![alt text](img/image-17.png)
+![alt text](docs/img/image-17.png)
 
 ### Graphic
 
-![alt text](img/image-18.png)
+![alt text](docs/img/image-18.png)
 
 ---
+## University Computer
+
+### Test 1 Thread
+
+![alt text](docs/img/image-19.png)
+
+
+### Test # Cores Thread
+
+![alt text](docs/img/image-20.png)
+
+### Test # Cores x2 Thread
+
+![alt text](docs/img/image-21.png)
+
+
+### Test 50 Threads
+
+![alt text](docs/img/image-22.png)
+
+
+### Test 100 Thread
+
+![alt text](docs/img/image-23.png)
+
+## Graph of solution time(ms) vs. number of threads University Computer
+
+### Data
+
+![alt text](docs/img/image-24.png)
+
+### Graphic
+
+![alt text](docs/img/image-25.png)
+
+---
+
 
 ## 🧵 Part 4 : Exercise Black List Search
 
 According to Amdahl's Law:
 
-![alt text](img/ahmdahls.png)
+![alt text](docs/img/ahmdahls.png)
 
 where S(n) is the theoretical performance improvement, P is the parallelizable fraction of the algorithm, and n is the number of threads. The larger n is, the greater the improvement should be.
 
